@@ -10,9 +10,7 @@
 </head>
 
 <body>
-    <h1>Color Picker Module</h1>
-
-    <!-- Color Picker Module -->
+    <!--1. Color Picker Module -->
     <div class="color-picker-module">
         <div class="input-box">
             <div class="color-display" id="colorDisplay" style="background-color: #16B8F3;"></div>
@@ -37,24 +35,49 @@
             <input type="range" id="alphaSlider" min="0" max="100" value="100">
         </div>
     </div>
-    <!--Font module-->
+    <!--2. Font module-->
     <div class="font-selector-module"></div>
-        <label for="titleFontSelector">Title Font:</label>
-        <select id="titleFontSelector"></select>
+    <label for="titleFontSelector">Title Font:</label>
+    <select id="titleFontSelector"></select>
 
-        <label for="subtitleFontSelector">Subtitle Font:</label>
-        <select id="subtitleFontSelector"></select>
+    <label for="subtitleFontSelector">Subtitle Font:</label>
+    <select id="subtitleFontSelector"></select>
     </div>
-    <!--theme viewer module-->
+    <!--3. theme color viewer module-->
     <div class="theme-elements-module">
-        <h2>Theme Elements</h2>
+        <h2>Theme colors</h2>
         <div class="color-boxes">
             <div class="color-box" id="box1"></div>
             <div class="color-box" id="box2"></div>
             <div class="color-box" id="box3"></div>
             <div class="color-box" id="box4"></div>
+            <div class="color-box" id="box5"></div>
         </div>
     </div>
+    <!--4. Theme display-->
+    <div class="theme-display-module">
+        <h2>Theme Display</h2>
+        <div class="display-box" style="background-color: black;color: white;">
+            <!-- Title and Subtitle in Black Background -->
+            <h2 id="blackTitle">Title</h2>
+            <h3 id="blackSubtitle">Sub-title</h3>
+        </div>
+
+        <!-- White Background with Border -->
+        <div class="display-box" style="background-color: white; border: 1px solid black;">
+            <!-- Title and Subtitle in White Background -->
+            <h2 id="whiteTitle">Title</h2>
+            <h3 id="whiteSubtitle">Sub-title</h3>
+        </div>
+    </div>
+    <!-- Save/Load Module -->
+    <div class="save-load-module">
+        <button id="saveButton">Save Theme</button>
+        <input type="file" id="loadFile" accept=".json" />
+        <button id="loadButton">Load Theme</button>
+    </div>
+    <script src="color_utils.js"></script>
+    <script src="file_process.js"></script>
     <script src="script.js"></script>
 </body>
 

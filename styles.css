@@ -2,7 +2,7 @@
     --primary-color: #07141a;
     --accent-color: #87f414;
     --accent-2-color: #f56e0f;
-    --text-white: #
+    --text-white: #f0fffa;
 }
 
 body {
@@ -56,7 +56,7 @@ input[type='range'] {
 .font-selector-module label {
     margin-bottom: 5px; /* Space below labels */
 }
-
+/*fonts module*/
 .theme-elements-module {
     margin-top: 20px; /* Space above the theme elements module */
 }
@@ -71,4 +71,32 @@ input[type='range'] {
     height: 20px; /* Height of each box */
     cursor: pointer; /* Change cursor to pointer on hover */
     border: 1px solid #ccc; /* Border styling */
+}
+/*theme display module*/
+
+.theme-display-module {
+    margin-top: 20px; /* Space above the theme display module */
+}
+
+.display-box {
+    padding: 10px; /* Padding inside each box */
+    margin-bottom: 10px; /* Space below each box */
+}
+
+.display-box h2 {
+    margin: 0; /* Remove default margin */
+}
+
+.display-box h3 {
+    margin: 5px 0 0; /* Space above h3 */
+}
+/*save load module*/
+.save-load-module {
+    margin-top: 20px; /* Space above the save/load module */
+}
+
+.save-load-module button {
+    margin-right: 10px; /* Space between buttons */
+    padding: 5px 10px; /* Padding for buttons */
+    cursor: pointer; /* Change cursor to pointer on hover */
 }
