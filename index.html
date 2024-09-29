@@ -4,81 +4,191 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
 
-    <title>Colors</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <!--
+        <link rel="stylesheet" href="css/fonts.css">
+        <meta http-equiv="refresh" content="8">
+        -->
+    <title>Theme Previewer</title>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings:
+                'FILL' 0,
+                'wght' 400,
+                'GRAD' 0,
+                'opsz' 24
+        }
+    </style>
 </head>
 
 <body>
-    <!--1. Color Picker Module -->
-    <div class="color-picker-module">
-        <div class="input-box">
-            <div class="color-display" id="colorDisplay" style="background-color: #16B8F3;"></div>
-            <label for="hexInput">Hex Color:</label>
-            <input type="text" id="hexInput" value="#16B8F3">
+    <div class="tab-widget source-code-pro">
+        <div class="tab-box">
+            <button class="tab-btn active">RGB</button>
+            <button class="tab-btn">HSV</button>
+            <button class="tab-btn">HSL</button>
+            <button class="tab-btn">CMYK</button>
+        </div>
+        <div class="tab-content-box">
+            <!--RGBA tab-->
+            <div class="content active" id="rgb-color-picker">
+                <div class="slider">
+                    <label for="red">R: </label>
+                    <input type="range" class="_slider rgb" min="0" max="255" value="255" step="1" id="red">
+                    <input type="number" class="_spinner rgb" min="0" max="255" value="255" step="1" id="red-input">
+                </div>
+                <div class="slider">
+                    <label for="green">G: </label>
+                    <input type="range" class="_slider rgb" min="0" max="255" value="255" step="1" id="green">
+                    <input type="number" class="_spinner rgb" min="0" max="255" value="255" step="1" id="green-input">
+                </div>
+                <div class="slider">
+                    <label for="blue">B: </label>
+                    <input type="range" class="_slider rgb" min="0" max="255" value="255" step="1" id="blue">
+                    <input type="number" class="_spinner rgb" min="0" max="255" value="255" step="1" id="blue-input">
+                </div>
+            </div>
+            <!--HSV tab-->
+            <div class="content" id="hsv-color-picker">
+                <div class="slider">
+                    <label for="hsv-hue">H: </label>
+                    <input type="range" class="_slider hsv" min="0" max="359" value="0" step="1" id="hsv-hue">
+                    <input type="number" class="_spinner hsv" min="0" max="359" value="0" step="1" id="hsv-hue-input">
+                </div>
+                <div class="slider">
+                    <label for="hsv-saturation">S: </label>
+                    <input type="range" class="_slider hsv" min="0" max="100" value="0" step="1" id="hsv-saturation">
+                    <input type="number" class="_spinner hsv" min="0" max="100" value="0" step="1"
+                        id="hsv-saturation-input">
+                </div>
+                <div class="slider">
+                    <label for="hsv-value">V: </label>
+                    <input type="range" class="_slider hsv" min="0" max="100" value="100" step="1" id="hsv-value">
+                    <input type="number" class="_spinner hsv" min="0" max="100" value="100" step="1"
+                        id="hsv-value-input">
+                </div>
+            </div>
+            <!--HSL TAB-->
+
+            <div class="content" id="hsl-color-picker">
+                <div class="slider">
+                    <label for="hsl-hue">H: </label>
+                    <input type="range" class="_slider hsl" min="0" max="359" value="0" step="1" id="hsl-hue">
+                    <input type="number" class="_spinner hsl" min="0" max="359" value="0" step="1" id="hsl-hue-input">
+                </div>
+                <div class="slider">
+                    <label for="hsl-saturation">S: </label>
+                    <input type="range" class="_slider hsl" min="0" max="100" value="0" step="1" id="hsl-saturation">
+                    <input type="number" class="_spinner hsl" min="0" max="100" value="0" step="1"
+                        id="hsl-saturation-input">
+                </div>
+                <div class="slider">
+                    <label for="hsl-luminosity">L: </label>
+                    <input type="range" class="_slider hsl" min="0" max="100" value="100" step="1" id="hsl-luminosity">
+                    <input type="number" class="_spinner hsl" min="0" max="100" value="100" step="1"
+                        id="hsl-luminosity-input">
+                </div>
+            </div>
+
+            <!--CMYK tab-->
+            <div class="content" id="hsl-color-picker">
+                <div class="slider">
+                    <label for="cyan">C: </label>
+                    <input type="range" class="_slider cmyk" min="0" max="100" value="0" step="1" id="cyan">
+                    <input type="number" class="_spinner cmyk" min="0" max="100" value="0" step="1" id="cyan-input">
+                </div>
+                <div class="slider">
+                    <label for="magenta">M: </label>
+                    <input type="range" class="_slider cmyk" min="0" max="100" value="0" step="1" id="magenta">
+                    <input type="number" class="_spinner cmyk" min="0" max="100" value="0" step="1" id="magenta-input">
+                </div>
+                <div class="slider">
+                    <label for="yellow">Y: </label>
+                    <input type="range" class="_slider cmyk" min="0" max="100" value="0" step="1" id="yellow">
+                    <input type="number" class="_spinner cmyk" min="0" max="100" value="0" step="1" id="yellow-input">
+                </div>
+                <div class="slider">
+                    <label for="black">K: </label>
+                    <input type="range" class="_slider cmyk" min="0" max="100" value="0" step="1" id="black">
+                    <input type="number" class="_spinner cmyk" min="0" max="100" value="0" step="1" id="black-input">
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="color-area">
+        <div id="color-display"></div>
+        <div>
+            <input type="text" class="hex" id="hex-input" value="#FFFFFF" maxlength="7"
+                style="width: -webkit-fill-available;">
+
+            <div class="slider">
+                <label for="alpha">A: </label>
+                <input type="range" class="_slider alpha" min="0" max="1" value="1" step="0.01" id="alpha">
+                <input type="number" class="_spinner alpha" min="0" max="1" value="1" step="0.01" id="alpha-input">
+            </div>
+        </div>
+    </div>
+
+
+    <!--FIXME:-->
+    <div style="display: flex; flex-direction: column; align-items: center;">
+        <div class="select" id="select-colors">
+            <span class="select-text">Select one or more colors</span>
+            <span id="_expand"></span>
+
+            <div class="select-box hide" id="items">
+                <label class="selected"><input type="checkbox" checked class="checkbox" id="opt-primary">
+                    <span class="opt-text">Primary </span>
+                </label>
+                <label class="selected"><input type="checkbox" checked class="checkbox" id="opt-background">
+                    <span class="opt-text">Background </span>
+                </label>
+                <label class="selected"><input type="checkbox" checked class="checkbox" id="opt-accent">
+                    <span class="opt-text">Accent </span>
+                </label>
+                <label class="selected"><input type="checkbox" checked class="checkbox" id="opt-text-on-dark">
+                    <span class="opt-text">Text on dark</span>
+                </label>
+                <label class="selected"><input type="checkbox" checked class="checkbox" id="opt-text-on-light">
+                    <span class="opt-text">Text on light</span>
+                </label>
+                <label><input type="checkbox" class="checkbox" id="opt-warning">
+                    <span class="opt-text">Warning </span>
+                </label>
+                <label><input type="checkbox" class="checkbox" id="opt-success">
+                    <span class="opt-text">Success </span>
+                </label>
+                <label><input type="checkbox" class="checkbox" id="opt-error">
+                    <span class="opt-text">Error </span>
+                </label>
+                <label><input type="checkbox" class="checkbox" id="opt-highlight">
+                    <span class="opt-text">Highlight </span>
+                </label>
+            </div>
+        </div>
+        <!-- Box Container -->
+        <div class="container" id="color-boxes">
+            <div class="box visible" id="primary">Primary</div>
+            <div class="box visible" id="background">Background</div>
+            <div class="box visible" id="accent">Accent</div>
+            <div class="box visible" id="text-on-dark">Text on dark</div>
+            <div class="box visible" id="text-on-light">Text on light</div>
+            <div class="box" id="warning">Warning</div>
+            <div class="box" id="success">Success</div>
+            <div class="box" id="error">Error</div>
+            <div class="box" id="highlight">Highlight</div>
         </div>
 
-        <div class="input-box">
-            <label for="redSlider">R:</label>
-            <input type="range" id="redSlider" min="0" max="255" value="22">
-        </div>
-        <div class="input-box">
-            <label for="greenSlider">G:</label>
-            <input type="range" id="greenSlider" min="0" max="255" value="184">
-        </div>
-        <div class="input-box">
-            <label for="blueSlider">B:</label>
-            <input type="range" id="blueSlider" min="0" max="255" value="243">
-        </div>
-        <div class="input-box">
-            <label for="alphaSlider">A:</label>
-            <input type="range" id="alphaSlider" min="0" max="100" value="100">
-        </div>
     </div>
-    <!--2. Font module-->
-    <div class="font-selector-module"></div>
-    <label for="titleFontSelector">Title Font:</label>
-    <select id="titleFontSelector"></select>
 
-    <label for="subtitleFontSelector">Subtitle Font:</label>
-    <select id="subtitleFontSelector"></select>
-    </div>
-    <!--3. theme color viewer module-->
-    <div class="theme-elements-module">
-        <h2>Theme colors</h2>
-        <div class="color-boxes">
-            <div class="color-box" id="box1"></div>
-            <div class="color-box" id="box2"></div>
-            <div class="color-box" id="box3"></div>
-            <div class="color-box" id="box4"></div>
-            <div class="color-box" id="box5"></div>
-        </div>
-    </div>
-    <!--4. Theme display-->
-    <div class="theme-display-module">
-        <h2>Theme Display</h2>
-        <div class="display-box" style="background-color: black;color: white;">
-            <!-- Title and Subtitle in Black Background -->
-            <h2 id="blackTitle">Title</h2>
-            <h3 id="blackSubtitle">Sub-title</h3>
-        </div>
-
-        <!-- White Background with Border -->
-        <div class="display-box" style="background-color: white; border: 1px solid black;">
-            <!-- Title and Subtitle in White Background -->
-            <h2 id="whiteTitle">Title</h2>
-            <h3 id="whiteSubtitle">Sub-title</h3>
-        </div>
-    </div>
-    <!-- Save/Load Module -->
-    <div class="save-load-module">
-        <button id="saveButton">Save Theme</button>
-        <input type="file" id="loadFile" accept=".json" />
-        <button id="loadButton">Load Theme</button>
-    </div>
-    <script src="color_utils.js"></script>
-    <script src="file_process.js"></script>
-    <script src="script.js"></script>
+    <script src="scripts/color_utils.js"></script>
+    <script src="scripts/file_handler.js"></script>
+    <script src='scripts/boxes.js'></script>
+    <script src='scripts/main.js'></script>
 </body>
 
 </html>

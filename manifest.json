@@ -1,9 +1,9 @@
 {
     "name": "Colors",
-    "version": "0.0.1",
+    "version": "1.0.1",
     "description": "random utilities for colors",
     "manifest_version": 3,
-    "author": "biohazard17",
+    "author": "Reynier López Argüello",
     "action": {
         "default_popup": "index.html",
         "default_title": "Colors",
@@ -19,5 +19,6 @@
         "32": "icons/ico_32.png",
         "64": "icons/ico_64.png",
         "128": "icons/ico_128.png"
-    }
+    },
+    "content_security_policy": {"extension_pages": "script-src 'self'; object-src 'self';"}
 }
