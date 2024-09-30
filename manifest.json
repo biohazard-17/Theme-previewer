@@ -4,6 +4,9 @@
     "description": "random utilities for colors",
     "manifest_version": 3,
     "author": "Reynier López Argüello",
+    "permissions": [
+        "activeTab"
+    ],
     "action": {
         "default_popup": "index.html",
         "default_title": "Colors",
@@ -20,5 +23,7 @@
         "64": "icons/ico_64.png",
         "128": "icons/ico_128.png"
     },
-    "content_security_policy": {"extension_pages": "script-src 'self'; object-src 'self';"}
+    "content_security_policy": {
+        "extension_pages": "script-src 'self'; object-src 'self';"
+    }
 }

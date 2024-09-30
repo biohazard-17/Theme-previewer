@@ -13,6 +13,8 @@ tabs.forEach((tab, index) => {
 //Global variable to store red, green, blue and alpha values across tabs
 const _sliders = document.querySelectorAll('._slider');
 const _spinners = document.querySelectorAll('._spinner');
+let active_box = document.getElementById('primary');
+
 let rgba = new Proxy([125, 5, 200, 1], {
     set(target, property, value) {
         target[property] = value;
@@ -46,6 +48,7 @@ function updateColorDisplay() {
     correctCMYK();
     correctHex();
     correctAlpha();
+    active_box.style.backgroundColor = `rgba(${rgba[0]},${rgba[1]}, ${rgba[2]}, ${rgba[3]})`
 }
 
 function initialize() {
@@ -222,6 +225,44 @@ _spinners.forEach(spinner => {
 document.getElementById('hex-input').addEventListener('input', () => {
     updateFromHEX();
 });
+//SECTION FOR THE BOXES
+const color_boxes = document.querySelectorAll('.box');
+
+color_boxes.forEach((box) => {
+    box.addEventListener('click', () => {
+        active_box = box;
+        color_boxes.forEach((b) => b.classList.remove('active'));
+        box.classList.add('active');
+        let color = parseColor(getComputedStyle(box).backgroundColor);
+        rgba[0] = color[0];
+        rgba[1] = color[1];
+        rgba[2] = color[2];
+        rgba[3] = color[3];
+        _spinners.forEach((s) => {
+            handleInputChange(s);
+        });
+    });
+});
+//color pickers
+document.getElementById('color-picker').addEventListener('click', () => {
+    // Close the popup
+    console.log("message");
+    document.body.style.cursor = 'crosshair';
+    // Send a message to the background script to activate the eye dropper
+    chrome.runtime.sendMessage({ action: "activateEyedropper" });
+});
+
+// Listen for messages from background script
+chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
+    if (request.action === "updateColor") {
+        let color = parseColor(request.color);
+        rgba[0] = color[0];
+        rgba[1] = color[1];
+        rgba[2] = color[2];
+        rgba[3] = color[3];
+    }
+});
+
 
 //call initialize to start process
 initialize();

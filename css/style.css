@@ -6,6 +6,15 @@
     --text-white: #f0fffa;
 }
 
+.d-flex{
+    display: flex;
+}
+.center{
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
 body {
     display: flex;
     justify-content: center;
@@ -30,8 +39,33 @@ body {
     padding: 8px;
     max-width: 300px;
     width: calc(300px - 18px);
+    
 
 }
+
+#color-picker,
+#advanced-color-picker{
+    min-width: 32px;
+    min-height: 32px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url('../icons/triangle_down.svg');
+    border-radius: 4px;
+    background-color: var(--accent-2-dimmed);
+    border: 1px solid var(--primary-color);
+}
+
+#color-picker:hover,
+#advanced-color-picker:hover{
+    border-color: var(--accent-2-color);
+}
+#color-picker-btns{
+    display: flex;
+    gap: 8px;
+    margin: 4px 0;
+    justify-content: space-between;
+}
+
 
 .tab-box {
     display: flex;
@@ -198,7 +232,7 @@ input[type='number'] {
     width: 100px;
     height: 100px;
     margin: 10px;
-    background-color: lightblue;
+    background-color: rgba(173, 216, 230, 0.555);
     display: none;
     /* Initially hidden */
     border: 1px solid black;
@@ -226,28 +260,27 @@ input[type='number'] {
 
 .select-box {
     display: none;
+    width: calc(300px - 15px);
     flex-direction: column;
     align-items: center;
     position: absolute;
     top: 100%;
-    left: 0;
+    left: -2px;
     border: 1px solid black;
     border-radius: 8px;
     margin-top: 4px;
     padding: 8px;
     background: var(--text-white);
-    transition: 0.9s;
+    transition: 0.2s;
     z-index: 3000;
 }
 
 .visible {
     display: flex;
-    transition: 0.9s;
 }
 
 .hide {
     display: none;
-    transition: 0.9s;
 }
 
 .select-box>label {
