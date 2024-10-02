@@ -243,26 +243,30 @@ color_boxes.forEach((box) => {
         });
     });
 });
-//color pickers
-document.getElementById('color-picker').addEventListener('click', () => {
-    // Close the popup
-    console.log("message");
-    document.body.style.cursor = 'crosshair';
-    // Send a message to the background script to activate the eye dropper
-    chrome.runtime.sendMessage({ action: "activateEyedropper" });
-});
-
-// Listen for messages from background script
-chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
-    if (request.action === "updateColor") {
-        let color = parseColor(request.color);
-        rgba[0] = color[0];
-        rgba[1] = color[1];
-        rgba[2] = color[2];
-        rgba[3] = color[3];
-    }
-});
-
-
 //call initialize to start process
 initialize();
+
+
+function fibonacci(n) {
+    if (n <= 1) return n;
+    let sequence = [n + 1];
+    sequence[0] = 0;
+    sequence[1] = 1;
+    for (let i = 2; i <= n; i++) {
+        sequence[i] = sequence[i - 1] + sequence[i - 2];
+    }
+    return sequence[n];
+}
+
+function factorial(n) {
+    if (n === 0) {
+        return 1;
+    }
+    return n * factorial(n - 1);
+}
+
+function W(n){
+    n.forEach(e => {
+        console.log(`Suma rara: ${factorial(e) + fibonacci(e)}`)
+    })
+}

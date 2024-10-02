@@ -22,8 +22,5 @@
         "32": "icons/ico_32.png",
         "64": "icons/ico_64.png",
         "128": "icons/ico_128.png"
-    },
-    "content_security_policy": {
-        "extension_pages": "script-src 'self'; object-src 'self';"
     }
 }
