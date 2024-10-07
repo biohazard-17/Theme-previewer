@@ -9,186 +9,150 @@
     <!--
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
         <link rel="stylesheet" href="css/fonts.css">
-        <meta http-equiv="refresh" content="8">
-    <style>
-        .material-symbols-outlined {
-            font-variation-settings:
-                'FILL' 0,
-                'wght' 400,
-                'GRAD' 0,
-                'opsz' 24
-        }
-    </style>
+        <meta http-equiv="refresh" content="5">
         -->
+
     <title>Theme Previewer</title>
 </head>
 
 <body>
-    <h2>Color selectors</h2>
-    <div class="tab-widget source-code-pro">
-        
-        <div class="tab-box">
-            <button class="tab-btn active">RGB</button>
-            <button class="tab-btn">HSV</button>
-            <button class="tab-btn">HSL</button>
-            <button class="tab-btn">CMYK</button>
+    <div id="context-menu">
+        <button id="c-rgba">RGB</button>
+        <button id="c-hsv">HSV</button>
+        <button id="c-hsl">HSL</button>
+        <button id="c-cmyk">CMYK</button>
+        <button id="c-hex">HEX</button>
+    </div>
+    <div class="fixed">
+        <h3 style="display: flex; margin: 3px; width: 100%; justify-content: center;">Theme Previewer</h3>
+        <div id="tab-box">
+            <div class="tab-btn active" id="rgb-tab">RGB</div>
+            <div class="tab-btn" id="hsv-tab">HSV</div>
+            <div class="tab-btn" id="hsl-tab">HSL</div>
+            <div class="tab-btn" id="cmyk-tab">CMYK</div>
         </div>
-        <div class="tab-content-box">
-            <!--RGBA tab-->
-            <div class="content active" id="rgb-color-picker">
+        <div id="tab-content">
+            <div class="picker active" id="rgb-picker">
                 <div class="slider">
-                    <label for="red">R: </label>
-                    <input type="range" class="_slider rgb" min="0" max="255" value="255" step="1" id="red">
-                    <input type="number" class="_spinner rgb" min="0" max="255" value="255" step="1" id="red-input">
+                    <label for="rgb-red-input">R: </label>
+                    <input class="_slider rgb" type="range" min="0" max="255" value="255" step="1" id="rgb-red">
+                    <input class="spinner rgb" type="number" min="0" max="255" value="255" step="1" id="rgb-red-input">
                 </div>
                 <div class="slider">
-                    <label for="green">G: </label>
-                    <input type="range" class="_slider rgb" min="0" max="255" value="255" step="1" id="green">
-                    <input type="number" class="_spinner rgb" min="0" max="255" value="255" step="1" id="green-input">
+                    <label for="rgb-green-input">G: </label>
+                    <input class="_slider rgb" type="range" min="0" max="255" value="255" step="1" id="rgb-green">
+                    <input class="spinner rgb" type="number" min="0" max="255" value="255" step="1"
+                        id="rgb-green-input">
                 </div>
                 <div class="slider">
-                    <label for="blue">B: </label>
-                    <input type="range" class="_slider rgb" min="0" max="255" value="255" step="1" id="blue">
-                    <input type="number" class="_spinner rgb" min="0" max="255" value="255" step="1" id="blue-input">
+                    <label for="rgb-blue-input">B: </label>
+                    <input class="_slider rgb" type="range" min="0" max="255" value="255" step="1" id="rgb-blue">
+                    <input class="spinner rgb" type="number" min="0" max="255" value="255" step="1" id="rgb-blue-input">
                 </div>
             </div>
-            <!--HSV tab-->
-            <div class="content" id="hsv-color-picker">
+            <!--HSV-->
+            <div class="picker" id="hsv-picker">
                 <div class="slider">
-                    <label for="hsv-hue">H: </label>
-                    <input type="range" class="_slider hsv" min="0" max="359" value="0" step="1" id="hsv-hue">
-                    <input type="number" class="_spinner hsv" min="0" max="359" value="0" step="1" id="hsv-hue-input">
+                    <label for="hsv-hue-input">H: </label>
+                    <input class="_slider hsv" type="range" min="0" max="359" value="0" step="1" id="hsv-hue">
+                    <input class="spinner hsv" type="number" min="0" max="359" value="0" step="1" id="hsv-hue-input">
                 </div>
                 <div class="slider">
-                    <label for="hsv-saturation">S: </label>
-                    <input type="range" class="_slider hsv" min="0" max="100" value="0" step="1" id="hsv-saturation">
-                    <input type="number" class="_spinner hsv" min="0" max="100" value="0" step="1"
+                    <label for="hsv-saturation-input">S: </label>
+                    <input class="_slider hsv" type="range" min="0" max="100" value="0" step="1" id="hsv-saturation">
+                    <input class="spinner hsv" type="number" min="0" max="100" value="0" step="1"
                         id="hsv-saturation-input">
                 </div>
                 <div class="slider">
-                    <label for="hsv-value">V: </label>
-                    <input type="range" class="_slider hsv" min="0" max="100" value="100" step="1" id="hsv-value">
-                    <input type="number" class="_spinner hsv" min="0" max="100" value="100" step="1"
+                    <label for="hsv-value-input">V: </label>
+                    <input class="_slider hsv" type="range" min="0" max="100" value="100" step="1" id="hsv-value">
+                    <input class="spinner hsv" type="number" min="0" max="100" value="100" step="1"
                         id="hsv-value-input">
                 </div>
             </div>
-            <!--HSL TAB-->
-
-            <div class="content" id="hsl-color-picker">
+            <!--HSL-->
+            <div class="picker" id="hsl-picker">
                 <div class="slider">
-                    <label for="hsl-hue">H: </label>
-                    <input type="range" class="_slider hsl" min="0" max="359" value="0" step="1" id="hsl-hue">
-                    <input type="number" class="_spinner hsl" min="0" max="359" value="0" step="1" id="hsl-hue-input">
+                    <label for="hsl-hue-input">H: </label>
+                    <input class="_slider hsl" type="range" min="0" max="359" value="0" step="1" id="hsl-hue">
+                    <input class="spinner hsl" type="number" min="0" max="359" value="0" step="1" id="hsl-hue-input">
                 </div>
                 <div class="slider">
-                    <label for="hsl-saturation">S: </label>
-                    <input type="range" class="_slider hsl" min="0" max="100" value="0" step="1" id="hsl-saturation">
-                    <input type="number" class="_spinner hsl" min="0" max="100" value="0" step="1"
+                    <label for="hsl-saturation-input">S: </label>
+                    <input class="_slider hsl" type="range" min="0" max="100" value="0" step="1" id="hsl-saturation">
+                    <input class="spinner hsl" type="number" min="0" max="100" value="0" step="1"
                         id="hsl-saturation-input">
                 </div>
                 <div class="slider">
-                    <label for="hsl-luminosity">L: </label>
-                    <input type="range" class="_slider hsl" min="0" max="100" value="100" step="1" id="hsl-luminosity">
-                    <input type="number" class="_spinner hsl" min="0" max="100" value="100" step="1"
-                        id="hsl-luminosity-input">
+                    <label for="hsl-luminance-input">L: </label>
+                    <input class="_slider hsl" type="range" min="0" max="100" value="100" step="1" id="hsl-luminance">
+                    <input class="spinner hsl" type="number" min="0" max="100" value="100" step="1"
+                        id="hsl-luminance-input">
                 </div>
             </div>
-
-            <!--CMYK tab-->
-            <div class="content" id="hsl-color-picker">
+            <!--CMYK-->
+            <div class="picker" id="cmyk-picker">
                 <div class="slider">
-                    <label for="cyan">C: </label>
-                    <input type="range" class="_slider cmyk" min="0" max="100" value="0" step="1" id="cyan">
-                    <input type="number" class="_spinner cmyk" min="0" max="100" value="0" step="1" id="cyan-input">
+                    <label for="cmyk-cyan-input">C: </label>
+                    <input class="_slider cmyk" type="range" min="0" max="100" value="100" step="1" id="cmyk-cyan">
+                    <input class="spinner cmyk" type="number" min="0" max="100" value="100" step="1"
+                        id="cmyk-cyan-input">
                 </div>
                 <div class="slider">
-                    <label for="magenta">M: </label>
-                    <input type="range" class="_slider cmyk" min="0" max="100" value="0" step="1" id="magenta">
-                    <input type="number" class="_spinner cmyk" min="0" max="100" value="0" step="1" id="magenta-input">
+                    <label for="cmyk-magenta-input">M: </label>
+                    <input class="_slider cmyk" type="range" min="0" max="100" value="100" step="1" id="cmyk-magenta">
+                    <input class="spinner cmyk" type="number" min="0" max="100" value="100" step="1"
+                        id="cmyk-magenta-input">
                 </div>
                 <div class="slider">
-                    <label for="yellow">Y: </label>
-                    <input type="range" class="_slider cmyk" min="0" max="100" value="0" step="1" id="yellow">
-                    <input type="number" class="_spinner cmyk" min="0" max="100" value="0" step="1" id="yellow-input">
+                    <label for="cmyk-yellow-input">Y: </label>
+                    <input class="_slider cmyk" type="range" min="0" max="100" value="100" step="1" id="cmyk-yellow">
+                    <input class="spinner cmyk" type="number" min="0" max="100" value="100" step="1"
+                        id="cmyk-yellow-input">
                 </div>
                 <div class="slider">
-                    <label for="black">K: </label>
-                    <input type="range" class="_slider cmyk" min="0" max="100" value="0" step="1" id="black">
-                    <input type="number" class="_spinner cmyk" min="0" max="100" value="0" step="1" id="black-input">
+                    <label for="cmyk-black-input">K: </label>
+                    <input class="_slider cmyk" type="range" min="0" max="100" value="100" step="1" id="cmyk-black">
+                    <input class="spinner cmyk" type="number" min="0" max="100" value="100" step="1"
+                        id="cmyk-black-input">
                 </div>
             </div>
-
+        </div>
+        <div class="color-area">
+            <div id="color-display"></div>
+            <div id="hex-alpha">
+                <input type="text" value="#ffffff" maxlength="7" id="hex-input" style="width: -webkit-fill-available;">
+                <div class="alpha-slider">
+                    <label for="alpha-input">A: </label>
+                    <input class="_slider alpha" type="range" min="0" max="1" value="1" step="0.01" id="alpha">
+                    <input class="_slider alpha" type="number" min="0" max="1" value="1" step="0.01" id="alpha-input">
+                </div>
+            </div>
         </div>
     </div>
-    <div class="color-area">
-        <div id="color-display"></div>
-        <div>
-            <input type="text" class="hex" id="hex-input" value="#FFFFFF" maxlength="7"
-                style="width: -webkit-fill-available;">
-
-            <div class="slider">
-                <label for="alpha">A: </label>
-                <input type="range" class="_slider alpha" min="0" max="1" value="1" step="0.01" id="alpha">
-                <input type="number" class="_spinner alpha" min="0" max="1" value="1" step="0.01" id="alpha-input">
-            </div>
+    <div id="colors">
+        <div class="save-buttons">
+            <button id="colors-save-css"><span></span>Save css</button>
+            <button id="colors-save-json"><span></span>Save json</button>
         </div>
+        <input id="theme-name" type="text" style="width: -webkit-fill-available; margin: 4px 0;">
+        <div id="theme">
+            <div draggable="true" class="_theme-color _box active" id="primary"><span>Primary</span></div>
+            <div draggable="true" class="_theme-color _box" id="background"><span>Background</span></div>
+            <div draggable="true" class="_theme-color _box" id="accent1"><span>Accent 1</span></div>
+            <div draggable="true" class="_theme-color _box" id="accent2"><span>Accent 2</span></div>
+            <div draggable="true" class="_theme-color _box" id="text-o-l"><span>Text On Light</span></div>
+            <div draggable="true" class="_theme-color _box" id="text-o-d"><span>Text On Dark</span></div>
+            <div draggable="true" class="_theme-color _box" id="warning"><span>Warning</span></div>
+            <div draggable="true" class="_theme-color _box" id="error"><span>Error</span></div>
+            <div draggable="true" class="_theme-color _box" id="success"><span>Success</span></div>
+            <div draggable="true" class="_theme-color _box" id="alert"><span>Alert</span></div>
+        </div>
+        <div id="preview" style="display: block; width: 30px; height: 30px;"></div>
     </div>
-
-
-    <!--FIXME:-->
-    <div style="display: flex; flex-direction: column; align-items: center;">
-        <div class="select" id="select-colors">
-            <span class="select-text">Select one or more colors</span>
-            <span id="_expand"></span>
-
-            <div class="select-box hide" id="items">
-                <label class="selected"><input type="checkbox" checked class="checkbox" id="opt-primary">
-                    <span class="opt-text">Primary </span>
-                </label>
-                <label class="selected"><input type="checkbox" checked class="checkbox" id="opt-background">
-                    <span class="opt-text">Background </span>
-                </label>
-                <label class="selected"><input type="checkbox" checked class="checkbox" id="opt-accent">
-                    <span class="opt-text">Accent </span>
-                </label>
-                <label class="selected"><input type="checkbox" checked class="checkbox" id="opt-text-on-dark">
-                    <span class="opt-text">Text on dark</span>
-                </label>
-                <label class="selected"><input type="checkbox" checked class="checkbox" id="opt-text-on-light">
-                    <span class="opt-text">Text on light</span>
-                </label>
-                <label><input type="checkbox" class="checkbox" id="opt-warning">
-                    <span class="opt-text">Warning </span>
-                </label>
-                <label><input type="checkbox" class="checkbox" id="opt-success">
-                    <span class="opt-text">Success </span>
-                </label>
-                <label><input type="checkbox" class="checkbox" id="opt-error">
-                    <span class="opt-text">Error </span>
-                </label>
-                <label><input type="checkbox" class="checkbox" id="opt-highlight">
-                    <span class="opt-text">Highlight </span>
-                </label>
-            </div>
-        </div>
-        <!-- Box Container -->
-        <div class="container" id="color-boxes">
-            <div class="box visible" id="primary">Primary</div>
-            <div class="box visible" id="background">Background</div>
-            <div class="box visible" id="accent">Accent</div>
-            <div class="box visible" id="text-on-dark">Text on dark</div>
-            <div class="box visible" id="text-on-light">Text on light</div>
-            <div class="box" id="warning">Warning</div>
-            <div class="box" id="success">Success</div>
-            <div class="box" id="error">Error</div>
-            <div class="box" id="highlight">Highlight</div>
-        </div>
-
-    </div>
-
-    <script src="scripts/color_utils.js"></script>
-    <script src="scripts/file_handler.js"></script>
-    <script src='scripts/boxes.js'></script>
+    <script src='scripts/file_handler.js'></script>
+    <script src='scripts/ripples.js'></script>
+    <script src='scripts/color_utils.js'></script>
     <script src='scripts/main.js'></script>
 </body>
 
