@@ -392,8 +392,6 @@ function correctAlpha() {
     const alpha_input = document.getElementById('alpha-input');
     alpha_slider.value = rgba[3];
     alpha_input.value = rgba[3];
-
-
     alpha_slider.style.backgroundImage = `url('icons/checkerboard.png') , linear-gradient(to right, rgba(0,0,0,0), rgba(${rgba[0]},${rgba[1]},${rgba[2]},1))`
 }
 //CALL INITIALIZE TO SETUP EVERYTHING

@@ -13,6 +13,7 @@ body {
     box-sizing: border-box;
     max-width: 280px;
     min-width: 280px;
+    overflow-y: hidden;
 }
 
 #context-menu {
@@ -52,10 +53,6 @@ body {
 }
 
 .fixed {
-    position: sticky;
-    top: 4px;
-    left: 0;
-    z-index: 200;
     background: var(--text-white);
     padding: 8px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
